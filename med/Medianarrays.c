@@ -5,8 +5,8 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 
 	double limit = nums1Size + nums2Size;
 	int i =0;
-	int median;
-	int median2;
+	int median = median2 = 0;
+	
 	if(limit%2 == 0){
 		//Remember that in C, division truncates towards 0. there fore 5/2
 		//would be 2 as 5 / 2 would typically be 2.5, but this needs to be
@@ -39,7 +39,64 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 	//new array. It is trivial to calculate what the median element should be
 	//(demonstrated above) we should be able to iterate through the values until
 	//we reach the median element.
-	
+	int found = 0;
+	int j = 0;
+	int n = 0;
+	int tmp;
+	/*
+	while(found != 1){
+		if(nums1[i] > nums2[j]){
+			i++;
+			n++;
+		}
+		else if(nums1[i] < nums2[j]){
+			j++;
+			n++;
+		}
+		else{
+			i++;
+			j++;
+			n++;
+		}
 
+		if(n == median){
+			found = 1;
+			return n;
+		}
+	}
+
+	return n;
+	*/
+	//above approach will not work for what we need. so lets reconsider this. 
+	//We have an ending index and a starting index. Now we need to find the middle indice. 
+	while ( found != 1 ) {
+		int tmpo = nums1[i];
+		int tmpt = nums2[j];
+		if ( tmpo < tmpt ) {
+			if( j < nums2Size - 1 ) {
+				j ++;
+			}
+		}
+		else if ( tmpo < tmpt ) {
+			if( i < nums1Size - 1 ) {
+				i++;
+			}
+		}
+
+		if ( i + j == median ) {
+			if ( tmpo > tmpt ) {
+				res = tmpo;
+				found = 1;
+			}
+			else {
+				res = tmpt;
+				found = 1;
+			}
+		}
+		else if ( eflag == 1 ) {
+			found = 1;
+		}
+	}
+	return res;
 }
 
