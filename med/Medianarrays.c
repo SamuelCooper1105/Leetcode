@@ -1,6 +1,14 @@
 #include <iostream.h>
 #include <stdlib.h>
 
+double mod ( double a, double b ) {
+	double quotient = a / b;
+	quotient = floor ( quotient );
+
+	return a - (b * quotient)
+}
+
+
 double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2Size){
 
 	double limit = nums1Size + nums2Size;
@@ -66,7 +74,7 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 	}
 
 	return n;
-	*/
+	
 	//above approach will not work for what we need. so lets reconsider this. 
 	//We have an ending index and a starting index. Now we need to find the middle indice. 
 	while ( found != 1 ) {
@@ -98,5 +106,7 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 		}
 	}
 	return res;
+	*/
+	//Above also does not work. 
 }
 
