@@ -14,8 +14,8 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 	double limit = nums1Size + nums2Size;
 	int i =0;
 	int median = median2 = 0;
-	
-	if(limit%2 == 0){
+	double two = 2;	
+	if(mod( limit, two ) == 0){
 		//Remember that in C, division truncates towards 0. there fore 5/2
 		//would be 2 as 5 / 2 would typically be 2.5, but this needs to be
 		//truncated towards 0, one could call this the floor of the division
@@ -27,7 +27,7 @@ double findMedianSortedArrays(int * nums1, int nums1Size, int * nums2, int nums2
 		// answer would be -3, but this is not how C works, the correct answer
 		// would be -2, as instead of taking the floot of a result, C
 		// truncates the answer towards 0, instead of just taking the floor.
-		limit / 2 = median;
+		limit / two = median;
 		median2 = median + 1;
 	}	
 	else {
